@@ -1,24 +1,24 @@
-import logo from './logo.svg';
+import React from 'react';
+import CssBaseline from '@material-ui/core/CssBaseline';
 import './App.css';
+import Navtab from './components/Navtab/Navtab'
+import defaultTheme from './themes/defaultTheme'
+import { ThemeProvider } from '@material-ui/core/styles';
+
 
 function App() {
+
+  const darkModeOn =false;
+
+  const theme = React.useMemo(() => defaultTheme(darkModeOn), [darkModeOn])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Navtab />
+      <h1 style={{ marginTop: "100px" }}> Hola</h1>
+    </ThemeProvider>
+
   );
 }
 
