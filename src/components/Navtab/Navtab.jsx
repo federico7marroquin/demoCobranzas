@@ -16,7 +16,9 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
-
+  AppBar: {
+    backgroundColor: theme.appBar.color,
+  },
   menuTitle: {
     marginRight: theme.spacing(3),
     marginLeft: theme.spacing(1),
@@ -54,8 +56,7 @@ const Navtab = () => {
   };
 
   return (
-
-    <AppBar position="fixed">
+    <AppBar position="static" className={classes.AppBar}>
       <Toolbar>
         <img alt="logo" src={Logo} width="45.5" height="42" />
         <Typography variant="h6" className={classes.menuTitle} >Be Pro Solutions</Typography>
@@ -80,7 +81,6 @@ const Navtab = () => {
       </Toolbar>
 
     </AppBar>
-
   )
 }
 

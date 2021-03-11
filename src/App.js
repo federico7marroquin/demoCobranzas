@@ -1,9 +1,16 @@
 import React from 'react';
+import { HashRouter  as Router,  Switch, Route, } from "react-router-dom";
+
 import CssBaseline from '@material-ui/core/CssBaseline';
-import './App.css';
-import Navtab from './components/Navtab/Navtab'
-import defaultTheme from './themes/defaultTheme'
+
 import { ThemeProvider } from '@material-ui/core/styles';
+
+import CampaingContainer from './containers/campaings/CampaingContainer'
+import Navtab from './components/Navtab/Navtab'
+
+import defaultTheme from './themes/defaultTheme'
+
+import './App.css';
 
 
 function App() {
@@ -16,7 +23,19 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Navtab />
-      <h1 style={{ marginTop: "100px" }}> Hola</h1>
+      <Router>
+        <Switch>
+            <Route exact path="/">
+              <CampaingContainer />
+            </Route>
+            <Route exact path="/campaing/list">
+              <CampaingContainer />
+            </Route>
+            <Route exact path="/statistics">
+              <CampaingContainer />
+            </Route>
+        </Switch>
+      </Router>
     </ThemeProvider>
 
   );
