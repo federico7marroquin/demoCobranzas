@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
 import { makeStyles } from '@material-ui/core/styles';
+import { Link } from "react-router-dom";
 
 import Logo from '../../assets/images/Logo.png';
 
@@ -18,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
   },
   AppBar: {
     backgroundColor: theme.appBar.color,
+    zIndex: theme.zIndex.drawer + 1,
   },
   menuTitle: {
     marginRight: theme.spacing(3),
@@ -56,7 +58,7 @@ const Navtab = () => {
   };
 
   return (
-    <AppBar position="static" className={classes.AppBar}>
+    <AppBar position="fixed" className={classes.AppBar}>
       <Toolbar>
         <img alt="logo" src={Logo} width="45.5" height="42" />
         <Typography variant="h6" className={classes.menuTitle} >Be Pro Solutions</Typography>
@@ -71,13 +73,21 @@ const Navtab = () => {
           open={Boolean(anchorEl)}
           onClose={handleClose}
         >
-          <MenuItem onClick={handleClose}>Ver todas las campañas</MenuItem>
-          <MenuItem onClick={handleClose}>Crear Campaña</MenuItem>
+          <Link to="/campaing/list" style={{ textDecoration: "none", color: "#000000DE" }}>
+
+            <MenuItem onClick={handleClose}>Ver todas las campañas</MenuItem>
+          </Link>
+          
+          <Link to="/"  style={{ textDecoration: "none", color: "#000000DE" }}>
+            <MenuItem onClick={handleClose}>Crear Campaña</MenuItem>
+          </Link>
         </Menu>
 
-        <Button className={classes.menuButton}>
-          <Typography >Estadísticas</Typography>
-        </Button>
+        <Link to ="/statistics"  style={{ textDecoration: "none", color: "#000000DE" }}>
+          <Button className={classes.menuButton}>
+            <Typography >Estadísticas</Typography>
+          </Button>
+        </Link>
       </Toolbar>
 
     </AppBar>

@@ -33,7 +33,7 @@ const clientOptions = [
 const useStyles = makeStyles((theme) => ({
     root: {
         '& .MuiTextField-root': {
-            width: '27ch',
+            width: '30ch',
         },
     },
     section: {
@@ -58,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
     buttonSubmit: {
         marginTop: theme.spacing(5),
         marginBottom: theme.spacing(7),
-        
+
     }
 }))
 
@@ -83,7 +83,7 @@ const CampaingForm = () => {
                 </Grid>
                 <Grid item xs={12} className={classes.section}>
                     <Grid container className={classes.row}>
-                        <Grid item xs={2}>
+                        <Grid item xs={3}>
                             <Typography>Cliente</Typography>
                         </Grid>
                         <Grid item xs={3} >
@@ -102,7 +102,10 @@ const CampaingForm = () => {
                                 ))}
                             </TextField>
                         </Grid>
-                        <Grid item xs={2}>
+
+                    </Grid>
+                    <Grid container className={classes.row}>
+                        <Grid item xs={3}>
                             <Typography>Campaña</Typography>
                         </Grid>
                         <Grid item xs={3}>
@@ -110,7 +113,7 @@ const CampaingForm = () => {
                         </Grid>
                     </Grid>
                     <Grid container className={classes.row}>
-                        <Grid item xs={2}>
+                        <Grid item xs={3}>
                             <Typography>Nombre</Typography>
                         </Grid>
                         <Grid item xs={3}>
@@ -118,25 +121,25 @@ const CampaingForm = () => {
                         </Grid>
                     </Grid>
                     <Grid container className={classes.row}>
-                        <Grid item xs={2}>
+                        <Grid item xs={3}>
                             <Typography>Vigencia campaña</Typography>
                         </Grid>
                         <Grid item xs={3}>
-                            <TextField  variant="outlined" size="small" type="date" helperText="Fecha de inicio"/>
+                            <TextField variant="outlined" size="small" type="date" helperText="Fecha de inicio" />
                         </Grid>
                         <Grid item xs={3}>
-                            <TextField  variant="outlined" size="small" type="date" helperText="Fecha de finalización"/>
+                            <TextField variant="outlined" size="small" type="date" helperText="Fecha de finalización" />
                         </Grid>
                     </Grid>
                 </Grid>
                 <Grid item xs={12} className={classes.section}>
                     <Divider className={classes.divider} />
                     <Grid container className={classes.dropzone}>
-                        <Grid item xs={2}>
+                        <Grid item xs={3}>
                             <Typography>Archivo Campaña</Typography>
                         </Grid>
                         <Grid item xs={3}>
-                            <Button  className={classes.button} variant="contained" color="secondary">
+                            <Button className={classes.button} variant="contained" color="secondary">
                                 Subir Archivo
                             </Button >
                         </Grid>
@@ -145,42 +148,42 @@ const CampaingForm = () => {
                 </Grid>
                 <Grid itme xs={12} className={classes.section}>
                     <Grid container className={classes.row}>
-                            <Typography variant="subtitle1" >Parámetros</Typography>
+                        <Typography variant="subtitle1" >Parámetros</Typography>
                     </Grid>
                     <Grid container className={classes.row}>
-                        <Grid item xs={2}>
+                        <Grid item xs={3}>
                             <Typography>Horario de llamadas</Typography>
                         </Grid>
                         <Grid item xs={3}>
-                            <TextField variant="outlined" size="small" type="time" helperText="Hora de inicio"/>
+                            <TextField variant="outlined" size="small" type="time" helperText="Hora de inicio" />
                         </Grid>
                         <Grid item xs={3}>
                             <TextField variant="outlined" size="small" type="time" helperText="Hora final" />
                         </Grid>
                     </Grid>
                     <Grid container className={classes.row}>
-                        <Grid item xs={2}>
+                        <Grid item xs={3}>
                             <Typography># intentos diarios por registro</Typography>
                         </Grid>
                         <Grid item xs={3}>
-                            <TextField  variant="outlined" size="small"  type="number"/>
+                            <TextField variant="outlined" size="small" type="number" />
                         </Grid>
                     </Grid>
                     <Grid container className={classes.row}>
-                        <Grid item xs={2}>
+                        <Grid item xs={3}>
                             <Typography># intentos durante la campaña</Typography>
                         </Grid>
                         <Grid item xs={3}>
-                            <TextField  variant="outlined" size="small" type="number" />
+                            <TextField variant="outlined" size="small" type="number" />
                         </Grid>
                     </Grid>
                     <Divider className={classes.divider} />
                 </Grid>
-            </Grid>
-            <Grid item xs={12} className={classes.section} >
-                <Button className={`${classes.buttonSubmit} ${classes.button}`} variant="contained" color="secondary">
-                    Crear
+                <Grid item xs={12} className={classes.section} >
+                    <Button className={`${classes.buttonSubmit} ${classes.button}`} variant="contained" color="secondary">
+                        Crear
                 </Button>
+                </Grid>
             </Grid>
 
         </Container>

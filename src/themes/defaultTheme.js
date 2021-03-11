@@ -11,7 +11,14 @@ let defaultTheme = (darkModeOn) => createMuiTheme({
         }
     },
     appBar: {
-        color: "#fff",
+        color: '#fff',
+    },
+    charts: {
+        first: '#',
+        second: '#',
+        third: '#',
+        fourth: '#',
+        fifth: '#',
     }
 
 
