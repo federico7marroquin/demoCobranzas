@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from "react-router-dom";
@@ -41,11 +41,6 @@ const useStyles = makeStyles((theme) => ({
 const Navtab = () => {
 
   const classes = useStyles()
-  const [value, setValue] = useState(0)
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  }
 
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -83,7 +78,7 @@ const Navtab = () => {
           </Link>
         </Menu>
 
-        <Link to ="/statistics"  style={{ textDecoration: "none", color: "#000000DE" }}>
+        <Link to ="/statistics/contactability"  style={{ textDecoration: "none", color: "#000000DE" }}>
           <Button className={classes.menuButton}>
             <Typography >Estadísticas</Typography>
           </Button>

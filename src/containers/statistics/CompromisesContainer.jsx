@@ -8,7 +8,6 @@ import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
 import Box from '@material-ui/core/Box'
 
-import ContactChart from '../../components/Charts/ContactChart'
 import CompromiseChart from '../../components/Charts/CompromiseChart'
 
 const CompromisesContainer = () => {

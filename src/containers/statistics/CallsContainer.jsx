@@ -9,7 +9,6 @@ import Grid from '@material-ui/core/Grid'
 import Box from '@material-ui/core/Box'
 
 import CallBarChart from '../../components/Charts/CallBarChart'
-import CallPieChart from '../../components/Charts/CallPieChart'
 
 const CallsContainer = () => {
     const classes = useStyles()

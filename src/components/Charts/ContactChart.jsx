@@ -46,7 +46,6 @@ const MyResponsiveLine = ({ data /* see data tab */ }) => (
             legend: 'count',
             legendOffset: -40,
             legendPosition: 'middle'
-            
 
         }, {...format}
         }
