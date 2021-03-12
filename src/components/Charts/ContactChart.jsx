@@ -9,10 +9,6 @@ const ContactChart = () => {
 
 export default ContactChart
 
-const format = {
-    format: value =>
-        `${Number(value)/10}%`,
-}
 // make sure parent container have a defined height when using
 // responsive component, otherwise height will be 0 and
 // no chart will be rendered.
@@ -45,10 +41,10 @@ const MyResponsiveLine = ({ data /* see data tab */ }) => (
             tickRotation: 0,
             legend: 'count',
             legendOffset: -40,
-            legendPosition: 'middle'
-
-        }, {...format}
-        }
+            legendPosition: 'middle',
+            format: value =>
+            `${Number(value)/10}%`,
+        }}
         pointSize={10}
         pointColor={{ theme: 'background' }}
         pointBorderWidth={2}
