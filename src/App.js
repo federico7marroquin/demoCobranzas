@@ -34,7 +34,7 @@ function App() {
           <Route exact path="/campaing/list">
             <CampaingListContainer />
           </Route>
-          <Route exact path="/statistics">
+          <Route path="/statistics">
             <RouterContainer />
           </Route>
         </Switch>

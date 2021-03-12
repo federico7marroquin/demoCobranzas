@@ -17,7 +17,7 @@ export  const useStyles = makeStyles((theme) => ({
       paddingBottom: theme.spacing(4),
     },
     paper: {
-      padding: theme.spacing(2),
+      padding: theme.spacing(4),
       display: 'flex',
       overflow: 'hidden',
       flexDirection: 'column',
@@ -33,6 +33,15 @@ export  const useStyles = makeStyles((theme) => ({
 
       }
 
+    },
+    vhHeight: {
+      height: '40vh'
+    },
+    vhMediumHeight: {
+      height: '60vh'
+    },
+    vhLargeHeight: {
+      height: '70vh'
     },
     fixedHeight: {
       height: 240,
@@ -58,6 +67,10 @@ export  const useStyles = makeStyles((theme) => ({
     },
     buttonMargin: {
       marginTop: theme.spacing(3)
+    },
+    fullImage: {
+      maxHeight: "100%",
+      maxWidth: "100%",
     }
     
   }));
