@@ -18,7 +18,7 @@ let defaultTheme = (darkModeOn) => createMuiTheme({
         third: '#90B2E3',
         second: '#1C83CF',
         fourth: '#855CF8',
-        fifth: '#',
+        fifth: '#855CF8',
     }
 
 
