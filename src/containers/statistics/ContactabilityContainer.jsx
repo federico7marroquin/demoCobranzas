@@ -16,7 +16,7 @@ const ContactabilityContainer = () => {
         <Container maxWidth="lg" className={classes.container}>
             <Paper className={classes.paper} >
                 <Box marginTop={2} marginLeft={3}>
-                    <Typography variant="h6" >% de conctactabilidad</Typography>
+                    <Typography variant="h6" >% de contactabilidad</Typography>
                 </Box>
                 <Box margin={3} className={classes.vhHeight}>
                     <ContactChart />
