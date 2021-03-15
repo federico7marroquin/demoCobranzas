@@ -1,16 +1,19 @@
 import React from 'react'
+
 import { Switch, Route, useRouteMatch } from "react-router-dom"
+
+
+import ContactabilityContainer from './ContactabilityContainer'
+import ConversationsContainer from './ConversationsContainer'
+import CompromisesContainer from './CompromisesContainer'
+import OverviewContainer from './OverviewContainer'
+import CallsContainer from './CallsContainer'
+import TopsContainer from './TopsContainer'
 
 import { useStyles } from '../../styles/containers/styles'
 
 import Drawer from '../../components/Drawer/Drawer'
-
-import ContactabilityContainer from './ContactabilityContainer'
-import CallsContainer from './CallsContainer'
-import CompromisesContainer from './CompromisesContainer'
-import TopsContainer from './TopsContainer'
-import OverviewContainer from './OverviewContainer'
-import ConversationsContainer from './ConversationsContainer'
+import { statistics } from '../../components/ListItems/ListItems';
 
 const RouterContainer = () => {
     const classes = useStyles()
@@ -18,7 +21,7 @@ const RouterContainer = () => {
 
     return (
         <div className={classes.root}>
-            <Drawer />
+            <Drawer listItems={statistics}/>
             <main className={classes.content}>
                 <div className={classes.appBarSpacer} />
                 <Switch>

@@ -16,7 +16,7 @@ const ConversationsContainer = () => {
     const classes = useStyles()
     return (
         <Container maxWidth="lg" className={classes.container}>
-            <Grid Container container spacing={3}>
+            <Grid container  spacing={3}>
                 <Grid item xs={6} >
                     <Paper className={classes.paper} >
                         <Box className={classes.vhHeight}>

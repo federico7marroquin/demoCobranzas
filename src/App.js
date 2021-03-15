@@ -5,9 +5,8 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 
 import { ThemeProvider } from '@material-ui/core/styles'
 
-import CampaingContainer from './containers/campaings/CampaingContainer'
-import CampaingListContainer from './containers/campaings/CampaingListContainer'
 import RouterContainer from './containers/statistics/RouterContainer'
+import ConfigContainer from './containers/config/ConfigContainer'
 
 import Navtab from './components/Navtab/Navtab'
 
@@ -28,11 +27,8 @@ function App() {
         <CssBaseline />
         <Navtab />
         <Switch>
-          <Route exact path="/">
-            <CampaingContainer />
-          </Route>
-          <Route exact path="/campaing/list">
-            <CampaingListContainer />
+          <Route path="/config">
+            <ConfigContainer />
           </Route>
           <Route path="/statistics">
             <RouterContainer />

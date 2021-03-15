@@ -40,10 +40,31 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 
+const Listbar = (routes, url, classes, location) => (
+
+    routes.map(route =>
+
+        <NavLink
+            key={route.id}
+            to={`${url}/${route.route}`}
+            style={{ textDecoration: "none", color: "#000000DE" }}
+        >
+            <ListItem
+                button
+                className={`${classes.listItem} ${location.pathname === url + '/' + route.route ? classes.active : ''}`} >
+                <ListItemText primary={route.label} />
+            </ListItem>
+        </NavLink>
+
+    ))
+
+
 const Sidebar = (props) => {
     const classes = useStyles()
     const location = useLocation()
     const { url } = useRouteMatch()
+
+    const { listItems } = props
 
     return (
         <Drawer
@@ -54,75 +75,26 @@ const Sidebar = (props) => {
             }}
         >
             <Toolbar />
-            <div className={classes.drawerContainer}>
-                <List>
-                    <NavLink 
-                        to={`${url}/contactability`}
-                        style={{ textDecoration: "none", color: "#000000DE" }}
-                    >
-                        <ListItem button className={`${classes.listItem} ${location.pathname===url+'/contactability'? classes.active: ''}`} >
-                            <ListItemText primary="Contactabilidad" />
-                        </ListItem>
-                    </NavLink>
-                    <NavLink 
-                        to={`${url}/tmo`}
-                        style={{ textDecoration: "none", color: "#000000DE" }}
-                    >
-                        <ListItem button className={`${classes.listItem}  ${location.pathname===url+'/tmo'? classes.active: ''}`} >
-                            <ListItemText primary="TMO" />
-                        </ListItem>
-                    </NavLink>
-                    <NavLink                         
-                        to={`${url}/calls`}
-                        style={{ textDecoration: "none", color: "#000000DE" }}
-                    >
-                        <ListItem button className={`${classes.listItem}  ${location.pathname===url+'/calls'? classes.active: ''}`} >
-                            <ListItemText primary="Llamadas" />
-                        </ListItem>
-                    </NavLink>
-                    <NavLink 
-                        to={`${url}/compromises`}
-                        style={{ textDecoration: "none", color: "#000000DE" }}
-                    >
-                        <ListItem button className={`${classes.listItem}  ${location.pathname===url+'/compromises'? classes.active: ''}`} >
-                            <ListItemText primary="Compromisos" />
-                        </ListItem>
-                    </NavLink>
-                    <NavLink 
-                        to={`${url}/tops`}
-                        style={{ textDecoration: "none", color: "#000000DE" }}
-                    >
-                        <ListItem button className={`${classes.listItem}  ${location.pathname===url+'/tops'? classes.active: ''}`} >
-                            <ListItemText primary="Tops" />
-                        </ListItem>
+            {
+                listItems.map(element => {
+                    return (
+                        <React.Fragment key={element.id}>
+                            <div className={classes.drawerContainer}>
+                                {element.header !== '' &&
+                                    <Typography className={classes.label}>{element.header}</Typography>}
+                                <List>
+                                    {
+                                        Listbar(element.routes, url, classes, location)
+                                    }
+                                </List>
+                            </div>
+                            {element.divider && <Divider />}
+                        </React.Fragment>
+                    )
 
-                    </NavLink>
-                </List>
-            </div>
-            <Divider />
-            <div className={classes.drawerContainer}>
-                <Typography className={classes.label}>Watson assistant</Typography>
-                <List>
-                    <NavLink 
-                        to={`${url}/overview`}
-                        style={{ textDecoration: "none", color: "#000000DE" }}
-                    >
-                        <ListItem button className={`${classes.listItem}  ${location.pathname===url+'/overview'? classes.active: ''}`}>
-                            <ListItemText primary="Overview" />
-                        </ListItem>
-                    </NavLink>
-                    <NavLink 
-                        to={`${url}/conversations`}
-                        style={{ textDecoration: "none", color: "#000000DE" }}
-                    >
-                        <ListItem button className={`${classes.listItem}  ${location.pathname===url+'/coversations'? classes.active: ''}`}>
-                            <ListItemText primary="Conversaciones" />
-                        </ListItem>
-                    </NavLink>
-
-                </List>
-            </div>
-        </Drawer>
+                })
+            }
+        </Drawer >
     )
 }
 

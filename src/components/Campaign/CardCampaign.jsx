@@ -28,12 +28,12 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 
-const CardCampaing = () => {
+const CardCampaign = () => {
 
     const classes = useStyles()
 
     return (
-        <Container fluid className={classes.container}>
+        <Container fluid="true" className={classes.container}>
             <Typography variant="h6" >Campaña de pagos enero</Typography>
             <Typography variant="caption" className={classes.client}>Cliente corporativo</Typography>
             <Typography>HRN_1001</Typography>
@@ -45,4 +45,4 @@ const CardCampaing = () => {
     )
 }
 
-export default CardCampaing
+export default CardCampaign

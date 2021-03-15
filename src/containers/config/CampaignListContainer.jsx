@@ -1,28 +1,25 @@
 import React from 'react'
-import CardCampaing from '../../components/Campaing/CardCampaing';
+import CardCampaign from '../../components/Campaign/CardCampaign';
 import { useStyles } from '../../styles/containers/styles'
 import Container from '@material-ui/core/Container'
 import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper'
 
-const CampaingListContainer = () => {
+const CampaignListContainer = () => {
     const classes = useStyles();
 
     return (
-        <main className={classes.content}>
-        <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
             <Grid container spacing={6}>
                 {[1,2,3,4,5,6].map(element => (
-                    <Grid item xs={4}> 
+                    <Grid item xs={12} sm={6} md={4} key={element}> 
                         <Paper className={classes.paper}>
-                            <CardCampaing />
+                            <CardCampaign />
                         </Paper>
                     </Grid>
                 ))}
             </Grid>
         </Container>
-    </main>
     )
 }
-export default CampaingListContainer
+export default CampaignListContainer

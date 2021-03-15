@@ -68,7 +68,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-const CampaingForm = () => {
+const CampaignForm = () => {
 
     const classes = useStyles()
 
@@ -79,7 +79,7 @@ const CampaingForm = () => {
     }
 
     return (
-        <Container fluid className={classes.root}>
+        <Container fluid="true" className={classes.root}>
             <Grid container >
                 <Grid item xs={12} className={classes.row}>
                     <Typography variant="h6"> Nueva Campaña</Typography>
@@ -219,4 +219,4 @@ const CampaingForm = () => {
     )
 }
 
-export default CampaingForm
+export default CampaignForm
