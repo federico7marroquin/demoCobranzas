@@ -1,12 +1,15 @@
 import React from 'react'
-import CardCampaign from '../../components/Campaign/CardCampaign';
-import { useStyles } from '../../styles/containers/styles'
+
 import Container from '@material-ui/core/Container'
-import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper'
+import Grid from '@material-ui/core/Grid'
+
+import { useStyles } from '../../styles/containers/styles'
+
+import CardCampaign from '../../components/Campaign/CardCampaign'
 
 const CampaignListContainer = () => {
-    const classes = useStyles();
+    const classes = useStyles()
 
     return (
         <Container maxWidth="lg" className={classes.container}>

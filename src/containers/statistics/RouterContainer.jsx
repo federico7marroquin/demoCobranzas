@@ -13,7 +13,8 @@ import TopsContainer from './TopsContainer'
 import { useStyles } from '../../styles/containers/styles'
 
 import Drawer from '../../components/Drawer/Drawer'
-import { statistics } from '../../components/ListItems/ListItems';
+
+import { statistics } from '../../components/ListItems/ListItems'
 
 const RouterContainer = () => {
     const classes = useStyles()

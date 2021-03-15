@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import InputBase from '@material-ui/core/InputBase';
-import IconButton from '@material-ui/core/IconButton';
-import SearchIcon from '@material-ui/icons/Search';
+import React, { useState } from 'react'
+
+import IconButton from '@material-ui/core/IconButton'
+import InputBase from '@material-ui/core/InputBase'
+import Paper from '@material-ui/core/Paper'
+
+import { makeStyles } from '@material-ui/core/styles'
+
+import SearchIcon from '@material-ui/icons/Search'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -23,24 +26,24 @@ const useStyles = makeStyles((theme) => ({
     height: 28,
     margin: 4,
   },
-}));
+}))
 
 export default function SearchBar(props) {
 
-  const classes = useStyles();
-  const [ state, setState ] = useState('');
-  const { searchFunction } = props;
+  const classes = useStyles()
+  const [ state, setState ] = useState('')
+  const { searchFunction } = props
 
   const search = (e) => {
-    e.preventDefault();
-    searchFunction(state);
+    e.preventDefault()
+    searchFunction(state)
   }
   const onChangeState = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     if(e.target.value===''){
-      searchFunction(e.target.value);
+      searchFunction(e.target.value)
     }
-    setState(e.target.value);
+    setState(e.target.value)
   }
 
   return (
@@ -62,5 +65,5 @@ export default function SearchBar(props) {
       </IconButton>
 
     </Paper>
-  );
+  )
 }

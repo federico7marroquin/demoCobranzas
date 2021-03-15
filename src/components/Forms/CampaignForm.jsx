@@ -28,17 +28,13 @@ const clientOptions = [
         value: '4',
         label: 'Cliente 4',
     },
-];
+]
 
 const useStyles = makeStyles((theme) => ({
     root: {
         '& .MuiTextField-root': {
             width: '30ch',
         },
-    },
-    section: {
-        // paddingTop: theme.spacing(4),
-        // paddingBottom: theme.spacing(4)
     },
     row: {
         marginTop: theme.spacing(3),
@@ -85,7 +81,7 @@ const CampaignForm = () => {
                     <Typography variant="h6"> Nueva Campaña</Typography>
                     <Divider className={classes.divider} />
                 </Grid>
-                <Grid item xs={12} className={classes.section}>
+                <Grid item xs={12} >
                     <Grid container className={classes.row} spacing={1}>
                         <Grid item xs={3}>
                             <Typography>Cliente</Typography>
@@ -153,7 +149,7 @@ const CampaignForm = () => {
                         </Grid>
                     </Grid>
                 </Grid>
-                <Grid item xs={12} className={classes.section}>
+                <Grid item xs={12} >
                     <Divider className={classes.divider} />
                     <Grid container className={classes.dropzone}>
                         <Grid item xs={3}>
@@ -175,7 +171,7 @@ const CampaignForm = () => {
                     </Grid>
                     <Divider className={classes.divider} />
                 </Grid>
-                <Grid item xs={12} className={classes.section}>
+                <Grid item xs={12} >
                     <Grid container className={classes.row} pacing={1}>
                         <Typography variant="subtitle1" >Parámetros</Typography>
                     </Grid>
@@ -208,7 +204,7 @@ const CampaignForm = () => {
                     </Grid>
                     <Divider className={classes.divider} />
                 </Grid>
-                <Grid item xs={12} className={classes.section} >
+                <Grid item xs={12}  >
                     <Button className={`${classes.buttonSubmit} ${classes.button}`} variant="contained" color="secondary">
                         Crear
                 </Button>

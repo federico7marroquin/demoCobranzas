@@ -9,7 +9,7 @@ import {
     CartesianGrid,
     Tooltip,
     Legend
-} from "recharts";
+} from "recharts"
 
 const data = [
     {
@@ -61,17 +61,17 @@ const data = [
         third: 31,
         fourth: 56,
     }
-];
+]
 
 
 const renderColorfulLegendText = (value, entry) => {
-    const { color } = entry;
+    const { color } = entry
   
-    return <span style={{ color,  marginRight: '40px' }}>{value}</span>;
-  };
+    return <span style={{ color,  marginRight: '40px' }}>{value}</span>
+  }
 
 const toPercent = (decimal, fixed = 0) =>
-  `${(decimal)}%`;
+  `${(decimal)}%`
   
 function CallBarChart() {
     const theme = useTheme()
@@ -97,7 +97,7 @@ function CallBarChart() {
                 <Bar legendType="diamond" dataKey="fourth" name="Cuarto contacto" fill={theme.charts.fourth} />
             </BarChart>
         </ResponsiveContainer>
-    );
+    )
 }
 
 export default CallBarChart

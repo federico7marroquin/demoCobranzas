@@ -1,16 +1,18 @@
 import React from 'react'
+
+import ListItemText from '@material-ui/core/ListItemText'
+import Typography from '@material-ui/core/Typography'
+import ListItem from '@material-ui/core/ListItem'
+import Divider from '@material-ui/core/Divider'
+import Toolbar from '@material-ui/core/Toolbar'
 import Drawer from '@material-ui/core/Drawer'
-import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
-import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
+import List from '@material-ui/core/List'
 
-import { makeStyles } from '@material-ui/core/styles';
-import { NavLink, useLocation, useRouteMatch } from 'react-router-dom';
+import { makeStyles } from '@material-ui/core/styles'
 
-const drawerWidth = 240;
+import { NavLink, useLocation, useRouteMatch } from 'react-router-dom'
+
+const drawerWidth = 240
 
 const useStyles = makeStyles((theme) => ({
     drawer: {

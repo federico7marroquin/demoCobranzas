@@ -7,10 +7,10 @@ import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
 import Box from '@material-ui/core/Box'
 
-import watson3 from '../../assets/images/watson3.PNG';
-import watson4 from '../../assets/images/watson4.PNG';
-import watson5 from '../../assets/images/watson5.PNG';
-import watson6 from '../../assets/images/watson6.PNG';
+import watson3 from '../../assets/images/watson3.PNG'
+import watson4 from '../../assets/images/watson4.PNG'
+import watson5 from '../../assets/images/watson5.PNG'
+import watson6 from '../../assets/images/watson6.PNG'
 
 const ConversationsContainer = () => {
     const classes = useStyles()

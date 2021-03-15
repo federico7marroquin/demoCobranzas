@@ -7,8 +7,8 @@ import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
 import Box from '@material-ui/core/Box'
 
-import watson1 from '../../assets/images/watson1.PNG';
-import watson2 from '../../assets/images/watson2.PNG';
+import watson1 from '../../assets/images/watson1.PNG'
+import watson2 from '../../assets/images/watson2.PNG'
 
 const OverviewContainer = () => {
     const classes = useStyles()

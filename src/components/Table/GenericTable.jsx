@@ -180,7 +180,7 @@ export default function GenericTable(props) {
                             .map((row, index) => {
                                 const arrayRow = Object.keys(row)
                                 const isItemSelected = isSelected(row[arrayRow[0]])
-                                const labelId = `enhanced-table-checkbox-${index}`;
+                                const labelId = `enhanced-table-checkbox-${index}`
 
                                 return (
                                     <TableRow

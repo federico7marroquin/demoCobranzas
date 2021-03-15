@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import { HashRouter as Router, Switch, Route, } from "react-router-dom"
 
 import CssBaseline from '@material-ui/core/CssBaseline'
@@ -37,7 +37,7 @@ function App() {
       </ThemeProvider>
     </Router>
 
-  );
+  )
 }
 
-export default App;
+export default App
