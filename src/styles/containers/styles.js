@@ -28,11 +28,6 @@ export  const useStyles = makeStyles((theme) => ({
       display: 'flex',
       flexDirection: 'column',
       height: 'auto',
-      '&:hover': {
-        boxShadow: '0px 0px 5px 1px rgba(0, 0, 0, 0.15)',
-
-      }
-
     },
     vhHeight: {
       height: '40vh'

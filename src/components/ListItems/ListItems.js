@@ -12,11 +12,6 @@ const charts = {
             label: 'Contactabilidad',
         },
         {
-            id: 1,
-            route: 'tmo',
-            label: 'TMO',
-        },
-        {
             id: 2,
             route: 'Calls',
             label: 'Llamadas',
@@ -25,6 +20,11 @@ const charts = {
             id: 3,
             route: 'compromises',
             label: 'Compromisos',
+        },
+        {
+            id: 1,
+            route: 'compliance',
+            label: 'Cumplimientos',
         },
         {
             id: 4,

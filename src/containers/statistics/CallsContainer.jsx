@@ -21,7 +21,7 @@ const CallsContainer = () => {
                         <Box marginTop={2} marginLeft={3}>
                             <Typography variant="h6" >% Efectividad de llamadas por # de contactos</Typography>
                         </Box>
-                        <Box margin={3} className={classes.vhHeight}>
+                        <Box margin={3} className={classes.vhMediumHeight}>
                             <CallBarChart />
                         </Box>
                     </Paper>

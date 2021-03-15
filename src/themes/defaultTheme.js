@@ -14,9 +14,9 @@ let defaultTheme = (darkModeOn) => createMuiTheme({
         color: '#fff',
     },
     charts: {
-        first: '#90B2E3',
+        first: '#54D335',
+        third: '#90B2E3',
         second: '#1C83CF',
-        third: '#54D335',
         fourth: '#855CF8',
         fifth: '#',
     }

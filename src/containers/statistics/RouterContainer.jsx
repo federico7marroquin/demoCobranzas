@@ -6,6 +6,7 @@ import { Switch, Route, useRouteMatch } from "react-router-dom"
 import ContactabilityContainer from './ContactabilityContainer'
 import ConversationsContainer from './ConversationsContainer'
 import CompromisesContainer from './CompromisesContainer'
+import ComplianceContainer from './ComplianceContainer'
 import OverviewContainer from './OverviewContainer'
 import CallsContainer from './CallsContainer'
 import TopsContainer from './TopsContainer'
@@ -34,6 +35,9 @@ const RouterContainer = () => {
                     </Route>
                     <Route path={`${path}/compromises`}>
                         <CompromisesContainer />
+                    </Route>
+                    <Route path={`${path}/compliance`}>
+                        <ComplianceContainer />
                     </Route>
                     <Route path={`${path}/tops`}>
                         <TopsContainer />

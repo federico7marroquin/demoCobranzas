@@ -9,14 +9,14 @@ import Box from '@material-ui/core/Box'
 
 import ContactChart from '../../components/Charts/ContactChart'
 
-const ContactabilityContainer = () => {
+const ComplianceContainer = () => {
     const classes = useStyles()
 
     return (
         <Container maxWidth="lg" className={classes.container}>
             <Paper className={classes.paper} >
                 <Box marginTop={2} marginLeft={3}>
-                    <Typography variant="h6" >% de contactabilidad</Typography>
+                     <Typography variant="h6">Cumplimientos de pago</Typography>
                 </Box>
                 <Box margin={3} className={classes.vhMediumHeight}>
                     <ContactChart />
@@ -26,4 +26,4 @@ const ContactabilityContainer = () => {
     )
 }
 
-export default ContactabilityContainer
+export default ComplianceContainer

@@ -117,14 +117,14 @@ const CampaignForm = () => {
                             <Typography>Descripción</Typography>
                         </Grid>
                         <Grid item xs={8} >
-                            <TextField 
-                                label="Descripción" 
-                                variant="outlined" 
-                                size="small" 
+                            <TextField
+                                label="Descripción"
+                                variant="outlined"
+                                size="small"
                                 multiline
                                 fullWidth
                                 rows={4}
-                                />
+                            />
                         </Grid>
                     </Grid>
                     <Grid container className={classes.row} spacing={1}>
@@ -132,19 +132,19 @@ const CampaignForm = () => {
                             <Typography>Vigencia campaña</Typography>
                         </Grid>
                         <Grid item xs={4} >
-                            <TextField 
-                                variant="outlined" 
-                                size="small" 
-                                type="date" 
-                                helperText="Fecha de inicio" 
+                            <TextField
+                                variant="outlined"
+                                size="small"
+                                type="date"
+                                helperText="Fecha de inicio"
                             />
                         </Grid>
                         <Grid item xs={4}>
-                            <TextField 
-                                variant="outlined" 
-                                size="small" 
-                                type="date" 
-                                helperText="Fecha de finalización" 
+                            <TextField
+                                variant="outlined"
+                                size="small"
+                                type="date"
+                                helperText="Fecha de finalización"
                             />
                         </Grid>
                     </Grid>
@@ -172,8 +172,8 @@ const CampaignForm = () => {
                     <Divider className={classes.divider} />
                 </Grid>
                 <Grid item xs={12} >
-                    <Grid container className={classes.row} pacing={1}>
-                        <Typography variant="subtitle1" >Parámetros</Typography>
+                    <Grid container className={classes.row} spacing={1}>
+                        <Typography variant="subtitle2" >Parámetros</Typography>
                     </Grid>
                     <Grid container className={classes.row} spacing={1}>
                         <Grid item xs={3}>
@@ -186,7 +186,7 @@ const CampaignForm = () => {
                             <TextField variant="outlined" size="small" type="time" helperText="Hora final" />
                         </Grid>
                     </Grid>
-                    <Grid container className={classes.row} pacing={1}>
+                    <Grid container className={classes.row} spacing={1}>
                         <Grid item xs={3}>
                             <Typography># intentos diarios por registro</Typography>
                         </Grid>
@@ -194,7 +194,7 @@ const CampaignForm = () => {
                             <TextField variant="outlined" size="small" type="number" />
                         </Grid>
                     </Grid>
-                    <Grid container className={classes.row} pacing={1}>
+                    <Grid container className={classes.row} spacing={1}>
                         <Grid item xs={3}>
                             <Typography># intentos durante la campaña</Typography>
                         </Grid>
@@ -204,13 +204,36 @@ const CampaignForm = () => {
                     </Grid>
                     <Divider className={classes.divider} />
                 </Grid>
+                <Grid item xs={12}>
+                    <Grid container className={classes.row} spacing={1}>
+                        <Typography variant="subtitle2" >Alertas y notificaciones</Typography>
+                    </Grid>
+                    <Grid container className={classes.row} spacing={1}>
+                        <Grid item xs={3}>
+                            <Typography>SMS</Typography>
+                        </Grid>
+                        <Grid item xs={3}>
+                            <Switch />
+                        </Grid>
+                    </Grid>
+                    <Grid container className={classes.row} spacing={1}>
+                        <Grid item xs={3}>
+                            <Typography>Correo electrónico</Typography>
+                        </Grid>
+                        <Grid item xs={3}>
+                            <Switch />
+                        </Grid>
+                    </Grid>
+                    <Divider className={classes.divider} />
+                </Grid>
+
                 <Grid item xs={12}  >
                     <Button className={`${classes.buttonSubmit} ${classes.button}`} variant="contained" color="secondary">
                         Crear
                 </Button>
                 </Grid>
-            </Grid>
 
+            </Grid>
         </Container>
     )
 }

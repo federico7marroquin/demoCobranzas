@@ -21,7 +21,7 @@ const CompromisesContainer = () => {
                     <Box marginTop={2} marginLeft={3}>
                         <Typography variant="h6" >% Compromisos de pago</Typography>
                     </Box>
-                    <Box margin={3} className={classes.vhHeight}>
+                    <Box margin={3} className={classes.vhMediumHeight}>
                         {/* <ContactChart />                     */}
                         <CompromiseChart />
                     </Box>
