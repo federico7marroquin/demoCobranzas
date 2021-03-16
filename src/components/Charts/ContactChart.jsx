@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { ResponsiveLine } from '@nivo/line'
 
 const ContactChart = (props) => {
@@ -6,20 +6,20 @@ const ContactChart = (props) => {
     const { campaign, date } = props
     const [filteredData, setFilteredData] = useState(data)
 
-    const useHasChanged = (val) => {
-        const prevVal = usePrevious(val)
-        return prevVal !== val
-    }
+    // const useHasChanged = (val) => {
+    //     const prevVal = usePrevious(val)
+    //     return prevVal !== val
+    // }
 
-    const usePrevious = (value) => {
-        const ref = useRef();
-        useEffect(() => {
-            ref.current = value;
-        });
-        return ref.current;
-    }
-    const hasVal1Changed = useHasChanged(campaign)
-    const hasVal2Changed = useHasChanged(date)
+    // const usePrevious = (value) => {
+    //     const ref = useRef();
+    //     useEffect(() => {
+    //         ref.current = value;
+    //     });
+    //     return ref.current;
+    // }
+    // const hasVal1Changed = useHasChanged(campaign)
+    // const hasVal2Changed = useHasChanged(date)
 
 
     const memoizedByDate = useMemo(() => {
