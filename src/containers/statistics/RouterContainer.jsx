@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { Switch, Route, useRouteMatch } from "react-router-dom"
 
@@ -13,17 +13,22 @@ import TopsContainer from './TopsContainer'
 
 import { useStyles } from '../../styles/containers/styles'
 
-import Drawer from '../../components/Drawer/Drawer'
 import StatisticsFilter from '../../components/Filters/StatisticsFilter'
+import Drawer from '../../components/Drawer/Drawer'
 
 import { statistics } from '../../components/ListItems/ListItems'
-import Grid from '@material-ui/core/Grid'
-import Paper from '@material-ui/core/Paper'
+
 import Container from '@material-ui/core/Container'
+import Paper from '@material-ui/core/Paper'
+import Grid from '@material-ui/core/Grid'
 
 const RouterContainer = () => {
     const classes = useStyles()
-    let { path } = useRouteMatch()
+    const [campaign, setCampaign] = useState('Todas las campañas')
+    const [date, setDate] = useState('mes')
+
+    const { path } = useRouteMatch()
+
 
     return (
         <div className={classes.root}>
@@ -34,12 +39,22 @@ const RouterContainer = () => {
                     <Grid container spacing={3}>
                         <Grid item xs={12} >
                             <Paper className={classes.paper}>
-                                <StatisticsFilter />
+                                <StatisticsFilter
+
+                                    setCampaign={setCampaign}
+                                    campaign={campaign}
+
+                                    date={date}
+                                    setDate={setDate}
+                                />
                             </Paper>
                         </Grid>
                         <Switch>
                             <Route path={`${path}/contactability`}>
-                                <ContactabilityContainer />
+                                <ContactabilityContainer
+                                    campaign={campaign}
+                                    date={date}
+                                />
                             </Route>
                             <Route path={`${path}/calls`}>
                                 <CallsContainer />
@@ -48,7 +63,10 @@ const RouterContainer = () => {
                                 <CompromisesContainer />
                             </Route>
                             <Route path={`${path}/compliance`}>
-                                <ComplianceContainer />
+                                <ComplianceContainer
+                                    campaign={campaign}
+                                    date={date}
+                                />
                             </Route>
                             <Route path={`${path}/tops`}>
                                 <TopsContainer />

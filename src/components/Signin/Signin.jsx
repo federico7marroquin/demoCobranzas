@@ -77,6 +77,7 @@ export default function SignIn(props) {
                         name="email"
                         autoComplete="email"
                         autoFocus
+                        color="secondary"
                     />
                     <TextField
                         variant="outlined"
@@ -88,6 +89,7 @@ export default function SignIn(props) {
                         type="password"
                         id="password"
                         autoComplete="current-password"
+                        color="secondary"
                     />
                     <FormControlLabel
                         control={<Checkbox value="remember" color="secondary" />}

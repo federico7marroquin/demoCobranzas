@@ -9,8 +9,9 @@ import Box from '@material-ui/core/Box'
 
 import ContactChart from '../../components/Charts/ContactChart'
 
-const ContactabilityContainer = () => {
+const ContactabilityContainer = (props) => {
     const classes = useStyles()
+    const { campaign, date } = props
 
     return (
         <Grid item xs={12} >
@@ -19,7 +20,10 @@ const ContactabilityContainer = () => {
                     <Typography variant="h6" >% de contactabilidad</Typography>
                 </Box>
                 <Box margin={3} className={classes.vhHeight}>
-                    <ContactChart />
+                    <ContactChart 
+                        campaign={campaign}
+                        date={date}
+                    />
                 </Box>
             </Paper>
         </Grid>

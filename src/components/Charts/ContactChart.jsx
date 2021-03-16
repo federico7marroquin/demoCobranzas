@@ -1,9 +1,87 @@
-import React from 'react'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { ResponsiveLine } from '@nivo/line'
 
-const ContactChart = () => {
+const ContactChart = (props) => {
+
+    const { campaign, date } = props
+    const [filteredData, setFilteredData] = useState(data)
+
+    const useHasChanged = (val) => {
+        const prevVal = usePrevious(val)
+        return prevVal !== val
+    }
+
+    const usePrevious = (value) => {
+        const ref = useRef();
+        useEffect(() => {
+            ref.current = value;
+        });
+        return ref.current;
+    }
+    const hasVal1Changed = useHasChanged(campaign)
+    const hasVal2Changed = useHasChanged(date)
+
+
+    const memoizedByDate = useMemo(() => {
+        let array = []
+        if (date === 'semana') {
+            array = data.map(element => {
+                let camp = {}
+                camp.id = element.id
+                camp.color = element.color
+                camp.data = element.data.filter(item => item.x === "15" || item.x === "16")
+                return camp
+            })
+        }
+        else if (date === 'hoy') {
+            array = data.map(element => {
+                let camp = {}
+                camp.id = element.id
+                camp.color = element.color
+                camp.data = element.data.filter(item => item.x === "16")
+                return camp
+            })
+        }
+        else if (date === 'mes') {
+            array = data
+        }
+
+        if(campaign !== 'Todas las campañas'){
+            return array.filter(element => element.id === campaign)
+        }
+        else{
+            return array
+        }
+         
+    }, [date, campaign])
+
+    const memoizedByCampaign = useMemo(() => memoizedByDate.filter(element => element.id === campaign), [memoizedByDate, campaign])
+
+
+
+
+    useEffect(() => {
+        // if (hasVal1Changed) {
+        //     if (campaign !== 'Todas las campañas') {
+        //         setFilteredData(memoizedByCampaign)
+        //     }
+        //     else {
+        //         setFilteredData(data)
+        //     }
+        // }
+        // else if (hasVal2Changed) {
+            
+        // }
+        setFilteredData(memoizedByDate)
+
+
+    }, [hasVal1Changed, hasVal2Changed, campaign, date, memoizedByCampaign, memoizedByDate])
+
+
+
+
     return (
-        <MyResponsiveLine data={data} />
+        <MyResponsiveLine data={filteredData} />
     )
 }
 
@@ -29,7 +107,7 @@ const MyResponsiveLine = ({ data /* see data tab */ }) => (
             tickSize: 5,
             tickPadding: 5,
             tickRotation: 0,
-            legend: 'Meses',
+            legend: '',
             legendOffset: 36,
             legendPosition: 'middle'
         }}
@@ -43,7 +121,7 @@ const MyResponsiveLine = ({ data /* see data tab */ }) => (
             legendOffset: -40,
             legendPosition: 'middle',
             format: value =>
-            `${Number(value)/10}%`,
+                `${Number(value) / 10}%`,
         }}
         pointSize={10}
         pointColor={{ theme: 'background' }}
@@ -87,53 +165,129 @@ const data = [
         "color": "hsl(104, 70%, 50%)",
         "data": [
             {
-                "x": "Enero",
+                "x": "1",
                 "y": 86
             },
             {
-                "x": "Febrero",
+                "x": "2",
                 "y": 181
             },
             {
-                "x": "Marzo",
+                "x": "3",
                 "y": 167
             },
             {
-                "x": "Abril",
+                "x": "4",
                 "y": 150
             },
             {
-                "x": "Mayo",
+                "x": "5",
                 "y": 133
             },
             {
-                "x": "Junio",
+                "x": "6",
                 "y": 121
             },
             {
-                "x": "Julio",
+                "x": "7",
                 "y": 220
             },
             {
-                "x": "Agosto",
+                "x": "8",
                 "y": 76
             },
             {
-                "x": "Septiempre",
+                "x": "9",
                 "y": 123
             },
             {
-                "x": "Octubre",
+                "x": "10",
                 "y": 241
             },
             {
-                "x": "Noviembre",
+                "x": "11",
                 "y": 32
             },
             {
-                "x": "Diciembre",
+                "x": "12",
                 "y": 283
-            }
+            },
+            {
+                "x": "13",
+                "y": 203
+            },
+            {
+                "x": "14",
+                "y": 175
+            },
+            {
+                "x": "15",
+                "y": 24
+            },
+            {
+                "x": "16",
+                "y": 154
+            },
+            //         {
+            //             "x": "17",
+            //             "y": 67
+            //         },
+            //         {
+            //             "x": "18",
+            //             "y": 45
+            //         },
+            //         {
+            //             "x": "19",
+            //             "y": 200
+            //         },
+            //         {
+            //             "x": "20",
+            //             "y": 175
+            //         },
+            //         {
+            //             "x": "21",
+            //             "y": 46
+            //         },
+            //         {
+            //             "x": "22",
+            //             "y": 92
+            //         },
+            //         {
+            //             "x": "23",
+            //             "y": 326
+            //         },
+            //         {
+            //             "x": "24",
+            //             "y": 123
+            //         },
+            //         {
+            //             "x": "25",
+            //             "y": 98
+            //         },
+            //         {
+            //             "x": "26",
+            //             "y": 153
+            //         },
+            //         {
+            //             "x": "27",
+            //             "y": 123
+            //         },
+            //         {
+            //             "x": "28",
+            //             "y": 23
+            //         },
+            //         {
+            //             "x": "29",
+            //             "y": 167
+            //         },
+            //         {
+            //             "x": "30",
+            //             "y": 36
+            //         },
+            //         {
+            //             "x": "31",
+            //             "y": 12
+            //         },
         ]
     },
     {
@@ -141,53 +295,129 @@ const data = [
         "color": "hsl(125, 70%, 50%)",
         "data": [
             {
-                "x": "Enero",
+                "x": "1",
                 "y": 278
             },
             {
-                "x": "Febrero",
+                "x": "2",
                 "y": 136
             },
             {
-                "x": "Marzo",
+                "x": "3",
                 "y": 83
             },
             {
-                "x": "Abril",
+                "x": "4",
                 "y": 101
             },
             {
-                "x": "Mayo",
+                "x": "5",
                 "y": 119
             },
             {
-                "x": "Junio",
+                "x": "6",
                 "y": 226
             },
             {
-                "x": "Julio",
+                "x": "7",
                 "y": 133
             },
             {
-                "x": "Agosto",
+                "x": "8",
                 "y": 234
             },
             {
-                "x": "Septiempre",
+                "x": "9",
                 "y": 105
             },
             {
-                "x": "Octubre",
+                "x": "10",
                 "y": 238
             },
             {
-                "x": "Noviembre",
+                "x": "11",
                 "y": 138
             },
             {
-                "x": "Diciembre",
+                "x": "12",
                 "y": 134
-            }
+            },
+            {
+                "x": "13",
+                "y": 100
+            },
+            {
+                "x": "14",
+                "y": 42
+            },
+            {
+                "x": "15",
+                "y": 56
+            },
+            {
+                "x": "16",
+                "y": 78
+            },
+            //         {
+            //             "x": "17",
+            //             "y": 67
+            //         },
+            //         {
+            //             "x": "18",
+            //             "y": 45
+            //         },
+            //         {
+            //             "x": "19",
+            //             "y": 200
+            //         },
+            //         {
+            //             "x": "20",
+            //             "y": 175
+            //         },
+            //         {
+            //             "x": "21",
+            //             "y": 46
+            //         },
+            //         {
+            //             "x": "22",
+            //             "y": 92
+            //         },
+            //         {
+            //             "x": "23",
+            //             "y": 326
+            //         },
+            //         {
+            //             "x": "24",
+            //             "y": 123
+            //         },
+            //         {
+            //             "x": "25",
+            //             "y": 98
+            //         },
+            //         {
+            //             "x": "26",
+            //             "y": 153
+            //         },
+            //         {
+            //             "x": "27",
+            //             "y": 123
+            //         },
+            //         {
+            //             "x": "28",
+            //             "y": 23
+            //         },
+            //         {
+            //             "x": "29",
+            //             "y": 167
+            //         },
+            //         {
+            //             "x": "30",
+            //             "y": 36
+            //         },
+            //         {
+            //             "x": "31",
+            //             "y": 12
+            //         },
         ]
     },
     {
@@ -195,53 +425,130 @@ const data = [
         "color": "hsl(44, 70%, 50%)",
         "data": [
             {
-                "x": "Enero",
+                "x": "1",
                 "y": 127
             },
             {
-                "x": "Febrero",
+                "x": "2",
                 "y": 222
             },
             {
-                "x": "Marzo",
+                "x": "3",
                 "y": 1
             },
             {
-                "x": "Abril",
+                "x": "4",
                 "y": 65
             },
             {
-                "x": "Mayo",
+                "x": "5",
                 "y": 245
             },
             {
-                "x": "Junio",
+                "x": "6",
                 "y": 55
             },
             {
-                "x": "Julio",
+                "x": "7",
                 "y": 61
             },
             {
-                "x": "Agosto",
+                "x": "8",
                 "y": 3
             },
             {
-                "x": "Septiempre",
+                "x": "9",
                 "y": 52
             },
             {
-                "x": "Octubre",
+                "x": "10",
                 "y": 39
             },
             {
-                "x": "Noviembre",
+                "x": "11",
                 "y": 227
             },
+
             {
-                "x": "Diciembre",
-                "y": 125
-            }
+                "x": "12",
+                "y": 283
+            },
+            {
+                "x": "13",
+                "y": 106
+            },
+            {
+                "x": "14",
+                "y": 123
+            },
+            {
+                "x": "15",
+                "y": 67
+            },
+            {
+                "x": "16",
+                "y": 54
+            },
+            // {
+            //     "x": "17",
+            //     "y": 67
+            // },
+            // {
+            //     "x": "18",
+            //     "y": 45
+            // },
+            // {
+            //     "x": "19",
+            //     "y": 200
+            // },
+            // {
+            //     "x": "20",
+            //     "y": 175
+            // },
+            // {
+            //     "x": "21",
+            //     "y": 46
+            // },
+            // {
+            //     "x": "22",
+            //     "y": 92
+            // },
+            // {
+            //     "x": "23",
+            //     "y": 326
+            // },
+            // {
+            //     "x": "24",
+            //     "y": 123
+            // },
+            // {
+            //     "x": "25",
+            //     "y": 98
+            // },
+            // {
+            //     "x": "26",
+            //     "y": 153
+            // },
+            // {
+            //     "x": "27",
+            //     "y": 123
+            // },
+            // {
+            //     "x": "28",
+            //     "y": 23
+            // },
+            // {
+            //     "x": "29",
+            //     "y": 167
+            // },
+            // {
+            //     "x": "30",
+            //     "y": 36
+            // },
+            // {
+            //     "x": "31",
+            //     "y": 12
+            // },
         ]
     },
     {
@@ -249,53 +556,129 @@ const data = [
         "color": "hsl(120, 70%, 50%)",
         "data": [
             {
-                "x": "Enero",
+                "x": "1",
                 "y": 295
             },
             {
-                "x": "Febrero",
+                "x": "2",
                 "y": 153
             },
             {
-                "x": "Marzo",
+                "x": "3",
                 "y": 109
             },
             {
-                "x": "Abril",
+                "x": "4",
                 "y": 212
             },
             {
-                "x": "Mayo",
+                "x": "5",
                 "y": 257
             },
             {
-                "x": "Junio",
+                "x": "6",
                 "y": 93
             },
             {
-                "x": "Julio",
+                "x": "7",
                 "y": 122
             },
             {
-                "x": "Agosto",
+                "x": "8",
                 "y": 45
             },
             {
-                "x": "Septiempre",
+                "x": "9",
                 "y": 8
             },
             {
-                "x": "Octubre",
+                "x": "10",
                 "y": 152
             },
             {
-                "x": "Noviembre",
+                "x": "11",
                 "y": 205
             },
             {
-                "x": "Diciembre",
+                "x": "12",
                 "y": 192
-            }
+            },
+            {
+                "x": "13",
+                "y": 106
+            },
+            {
+                "x": "14",
+                "y": 230
+            },
+            {
+                "x": "15",
+                "y": 145
+            },
+            {
+                "x": "16",
+                "y": 57
+            },
+            // {
+            //     "x": "17",
+            //     "y": 67
+            // },
+            // {
+            //     "x": "18",
+            //     "y": 45
+            // },
+            // {
+            //     "x": "19",
+            //     "y": 200
+            // },
+            // {
+            //     "x": "20",
+            //     "y": 175
+            // },
+            // {
+            //     "x": "21",
+            //     "y": 46
+            // },
+            // {
+            //     "x": "22",
+            //     "y": 92
+            // },
+            // {
+            //     "x": "23",
+            //     "y": 326
+            // },
+            // {
+            //     "x": "24",
+            //     "y": 123
+            // },
+            // {
+            //     "x": "25",
+            //     "y": 98
+            // },
+            // {
+            //     "x": "26",
+            //     "y": 153
+            // },
+            // {
+            //     "x": "27",
+            //     "y": 123
+            // },
+            // {
+            //     "x": "28",
+            //     "y": 23
+            // },
+            // {
+            //     "x": "29",
+            //     "y": 167
+            // },
+            // {
+            //     "x": "30",
+            //     "y": 36
+            // },
+            // {
+            //     "x": "31",
+            //     "y": 12
+            // },
         ]
     },
     {
@@ -303,53 +686,129 @@ const data = [
         "color": "hsl(51, 70%, 50%)",
         "data": [
             {
-                "x": "Enero",
+                "x": "1",
                 "y": 157
             },
             {
-                "x": "Febrero",
+                "x": "2",
                 "y": 11
             },
             {
-                "x": "Marzo",
+                "x": "3",
                 "y": 59
             },
             {
-                "x": "Abril",
+                "x": "4",
                 "y": 37
             },
             {
-                "x": "Mayo",
+                "x": "5",
                 "y": 254
             },
             {
-                "x": "Junio",
+                "x": "6",
                 "y": 130
             },
             {
-                "x": "Julio",
+                "x": "7",
                 "y": 237
             },
             {
-                "x": "Agosto",
+                "x": "8",
                 "y": 280
             },
             {
-                "x": "Septiempre",
+                "x": "9",
                 "y": 217
             },
             {
-                "x": "Octubre",
+                "x": "10",
                 "y": 28
             },
             {
-                "x": "Noviembre",
+                "x": "11",
                 "y": 112
             },
             {
-                "x": "Diciembre",
+                "x": "12",
                 "y": 136
-            }
+            },
+            {
+                "x": "13",
+                "y": 89
+            },
+            {
+                "x": "14",
+                "y": 34
+            },
+            {
+                "x": "15",
+                "y": 45
+            },
+            {
+                "x": "16",
+                "y": 154
+            },
+            // {
+            //     "x": "17",
+            //     "y": 67
+            // },
+            // {
+            //     "x": "18",
+            //     "y": 45
+            // },
+            // {
+            //     "x": "19",
+            //     "y": 200
+            // },
+            // {
+            //     "x": "20",
+            //     "y": 175
+            // },
+            // {
+            //     "x": "21",
+            //     "y": 46
+            // },
+            // {
+            //     "x": "22",
+            //     "y": 92
+            // },
+            // {
+            //     "x": "23",
+            //     "y": 326
+            // },
+            // {
+            //     "x": "24",
+            //     "y": 123
+            // },
+            // {
+            //     "x": "25",
+            //     "y": 98
+            // },
+            // {
+            //     "x": "26",
+            //     "y": 153
+            // },
+            // {
+            //     "x": "27",
+            //     "y": 123
+            // },
+            // {
+            //     "x": "28",
+            //     "y": 23
+            // },
+            // {
+            //     "x": "29",
+            //     "y": 167
+            // },
+            // {
+            //     "x": "30",
+            //     "y": 36
+            // },
+            // {
+            //     "x": "31",
+            //     "y": 12
+            // },
         ]
     }
 ]

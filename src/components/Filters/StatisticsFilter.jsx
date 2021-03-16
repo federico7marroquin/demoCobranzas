@@ -1,19 +1,21 @@
 import React from 'react'
 
-import ButtonGroup from '@material-ui/core/ButtonGroup'
 import FormControl from '@material-ui/core/FormControl'
 import InputLabel from '@material-ui/core/InputLabel'
 import TextField from '@material-ui/core/TextField'
 import MenuItem from '@material-ui/core/MenuItem'
-import Button from '@material-ui/core/Button'
 import Select from '@material-ui/core/Select'
 import Grid from '@material-ui/core/Grid'
+
+import ToggleButton from '@material-ui/lab/ToggleButton';
+import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
 
 import { makeStyles } from '@material-ui/core/styles'
 
 import MaterialUIPickers from './DatePickers'
 
 const campaignOptions = [
+
     {
         value: '0',
         label: 'Todas las campañas',
@@ -34,6 +36,10 @@ const campaignOptions = [
         value: '4',
         label: 'Campaña 4',
     },
+    {
+        value: '5',
+        label: 'Campaña 5',
+    },
 ]
 
 const names = [
@@ -42,7 +48,7 @@ const names = [
     'Cliente particular',
     'Cliente sector público',
     'Cliente interno',
-];
+]
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -77,17 +83,22 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 
-const StatisticsFilter = () => {
+const StatisticsFilter = (props) => {
     const classes = useStyles()
-    const [client, setClient] = React.useState(0)
-    const [clientType, setClientType] = React.useState([]);
+    const [clientType, setClientType] = React.useState([])
+
+    const { campaign, setCampaign, date, setDate } = props
 
     const handleChange = (event) => {
-        setClient(event.target.value)
+        setCampaign(event.target.value)
     }
 
     const handleClientChange = (event) => {
-        setClientType(event.target.value);
+        setClientType(event.target.value)
+    }
+
+    const handleDate = (event, newDate) => {
+        setDate(newDate);
     };
 
     return (
@@ -105,12 +116,13 @@ const StatisticsFilter = () => {
                             select
                             variant="outlined"
                             size="small"
-                            
-                            value={client}
+                            color="secondary"
+
+                            value={campaign}
                             onChange={handleChange}
                         >
                             {campaignOptions.map(option => (
-                                <MenuItem key={option.value} value={option.value}>
+                                <MenuItem key={option.value} value={option.label}>
                                     {option.label}
                                 </MenuItem>
                             ))}
@@ -118,7 +130,12 @@ const StatisticsFilter = () => {
                     </Grid>
                     <Grid item className={classes.select} >
 
-                        <FormControl size="small" variant="outlined" className={classes.select}>
+                        <FormControl
+                            color="secondary"
+                            size="small"
+                            variant="outlined"
+                            className={classes.select}
+                        >
                             <InputLabel htmlFor="outlined-client-simple">Cliente</InputLabel>
                             <Select
                                 value={clientType}
@@ -149,11 +166,22 @@ const StatisticsFilter = () => {
                     alignItems="flex-end"
                 >
                     <Grid item >
-                        <ButtonGroup  aria-label="large outlined primary button group">
-                            <Button>Hoy</Button>
-                            <Button>Semana</Button>
-                            <Button>Mes</Button>
-                        </ButtonGroup>
+                        <ToggleButtonGroup
+                            value={date}
+                            exclusive
+                            onChange={handleDate}
+                            aria-label="date picker"
+                        >
+                            <ToggleButton value="hoy" aria-label="hoy">
+                                Hoy
+                            </ToggleButton>
+                            <ToggleButton value="semana" aria-label="semana actual">
+                                Semana
+                            </ToggleButton>
+                            <ToggleButton value="mes" aria-label="mes actual">
+                                Mes
+                            </ToggleButton>
+                        </ToggleButtonGroup>
                     </Grid>
                     <Grid item className={classes.row} >
                         <MaterialUIPickers />
