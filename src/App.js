@@ -3,7 +3,6 @@ import { HashRouter as Router, Switch, Route, } from "react-router-dom"
 
 import CssBaseline from '@material-ui/core/CssBaseline'
 
-
 import { ThemeProvider } from '@material-ui/core/styles'
 
 import RouterContainer from './containers/statistics/RouterContainer'
@@ -14,7 +13,6 @@ import Navtab from './components/Navtab/Navtab'
 import defaultTheme from './themes/defaultTheme'
 
 import './App.css'
-
 
 function App() {
 
@@ -37,7 +35,6 @@ function App() {
         </Switch>
       </ThemeProvider>
     </Router>
-
   )
 }
 

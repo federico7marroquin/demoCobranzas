@@ -9,23 +9,20 @@ import { Grid } from '@material-ui/core';
 
 export default function MaterialUIPickers() {
     // The first commit of Material-UI
-    const [selectedDate, setSelectedDate] = React.useState(new Date('2014-08-18T21:11:54'));
+    const [selectedDate, setSelectedDate] = React.useState(new Date());
 
     const handleDateChange = (date) => {
         setSelectedDate(date);
     };
 
     return (
-        <>
-
             <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                <Grid container spacing={2}>
+                <Grid container spacing={2} alignItems="flex-end">
                     <Grid item>
-
                         <KeyboardDatePicker
                             disableToolbar
                             inputVariant="outlined"
-                            size="small"
+                            // size="small"
                             variant="inline"
                             format="MM/dd/yyyy"
                             id="date-picker-inline"
@@ -38,14 +35,13 @@ export default function MaterialUIPickers() {
                         />
                     </Grid>
                     <Grid item >
-
                         <KeyboardDatePicker
                             disableToolbar
                             variant="inline"
-                            size="small"
+                            // size="small"
                             inputVariant="outlined"
                             format="MM/dd/yyyy"
-                            id="date-picker-inline"
+                            id="date-picker-inline2"
                             label="Fecha final"
                             value={selectedDate}
                             onChange={handleDateChange}
@@ -56,6 +52,5 @@ export default function MaterialUIPickers() {
                     </Grid>
                 </Grid>
             </MuiPickersUtilsProvider>
-        </>
     );
 }
