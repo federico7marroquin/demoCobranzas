@@ -37,7 +37,7 @@ const CardCampaign = () => {
         <Container fluid="true" className={classes.container}>
             <Typography variant="h6" >Campaña de pagos enero</Typography>
             <Typography variant="caption" className={classes.client}>Cliente corporativo</Typography>
-            <Typography>HRN_1001</Typography>
+            <Typography>HRN_0{Math.floor(Math.random()*100)}</Typography>
             <div className={classes.buttonWrapper}>
                 <Button fullWidth className={classes.button }variant="contained" color="secondary" >Ver</Button>
             </div>

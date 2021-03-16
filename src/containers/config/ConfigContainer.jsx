@@ -5,7 +5,7 @@ import { Switch, Route, useRouteMatch } from "react-router-dom"
 import CampaignListContainer from './CampaignListContainer'
 import CampaignContainer from './CampaignContainer'
 import UsersContainer from './UsersContainer'
-
+import EmailContainer from './EmailContainer'
 
 import { useStyles } from '../../styles/containers/styles'
 
@@ -17,7 +17,7 @@ const ConfigContainer = () => {
     let { path } = useRouteMatch()
 
     return (
-        <div className ={classes.root}>
+        <div className={classes.root}>
             <Drawer listItems={config} />
             <main className={classes.content}>
                 <div className={classes.appBarSpacer}/>
@@ -30,6 +30,9 @@ const ConfigContainer = () => {
                     </Route>
                     <Route path={`${path}/users`}>
                         <UsersContainer />
+                    </Route>
+                    <Route path={`${path}/notifications`}>
+                        <EmailContainer />
                     </Route>
                 </Switch>
             </main>
