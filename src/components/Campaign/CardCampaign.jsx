@@ -5,6 +5,7 @@ import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 
 import { makeStyles } from '@material-ui/core/styles'
+import { Link } from 'react-router-dom'
 
 const useStyles = makeStyles((theme) => ({
 
@@ -39,7 +40,10 @@ const CardCampaign = () => {
             <Typography variant="caption" className={classes.client}>Cliente corporativo</Typography>
             <Typography>HRN_0{Math.floor(Math.random()*100)}</Typography>
             <div className={classes.buttonWrapper}>
-                <Button fullWidth className={classes.button }variant="contained" color="secondary" >Ver</Button>
+                <Link to="/campaign/detail"  replace  style={{ textDecoration: "none", color: "#000000DE" }}>
+                    <Button fullWidth className={classes.button }variant="contained" color="secondary" >Ver</Button>
+                </Link>
+
             </div>
         </Container>
 

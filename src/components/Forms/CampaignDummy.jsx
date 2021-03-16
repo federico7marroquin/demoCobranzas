@@ -14,26 +14,21 @@ import { makeStyles } from '@material-ui/core/styles'
 const clientOptions = [
     {
         value: '1',
-        label: 'Cliente preferencial',
+        label: 'Cliente 1',
     },
     {
         value: '2',
-        label: 'Cliente empresa',
+        label: 'Cliente 2',
     },
     {
         value: '3',
-        label: 'Cliente particular',
+        label: 'Cliente 3',
     },
     {
         value: '4',
-        label: 'Cliente sector público',
-    },
-    {
-        value: '4',
-        label: 'Cliente interno',
+        label: 'Cliente 4',
     },
 ]
-
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -69,7 +64,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-const CampaignForm = () => {
+const CampaignDummy = () => {
 
     const classes = useStyles()
 
@@ -83,97 +78,49 @@ const CampaignForm = () => {
         <Container fluid="true" className={classes.root}>
             <Grid container >
                 <Grid item xs={12} className={classes.row}>
-                    <Typography variant="h6"> Nueva Campaña</Typography>
+                    <Typography variant="h6">Información de la Campaña</Typography>
                     <Divider className={classes.divider} />
                 </Grid>
                 <Grid item xs={12} >
                     <Grid container className={classes.row} spacing={1}>
                         <Grid item xs={3}>
-                            <Typography>Cliente</Typography>
+                            <Typography variant="subtitle2">Cliente:</Typography>
                         </Grid>
                         <Grid item xs={4} >
-                            <TextField
-                                label="Cliente"
-                                select
-                                variant="outlined"
-                                size="small"
-                                value={client}
-                                onChange={handleChange}
-                            >
-                                {clientOptions.map(option => (
-                                    <MenuItem key={option.value} value={option.value}>
-                                        {option.label}
-                                    </MenuItem>
-                                ))}
-                            </TextField>
+                            <Typography variant="body">Cliente particular, Cliente preferencial</Typography>
                         </Grid>
 
                     </Grid>
                     <Grid container className={classes.row} spacing={1}>
                         <Grid item xs={3}>
-                            <Typography>Campaña</Typography>
+                            <Typography variant="subtitle2">Campaña:</Typography>
                         </Grid>
                         <Grid item xs={4}>
-                            <TextField label="Campaña" variant="outlined" size="small" />
+                            <Typography variant="body">Campaña de pagos enero</Typography>
                         </Grid>
                     </Grid>
                     <Grid container className={classes.row} spacing={1}>
                         <Grid item xs={3}>
-                            <Typography>Descripción</Typography>
+                            <Typography variant="subtitle2">Descripción:</Typography>
                         </Grid>
                         <Grid item xs={8} >
-                            <TextField
-                                label="Descripción"
-                                variant="outlined"
-                                size="small"
-                                multiline
-                                fullWidth
-                                rows={4}
-                            />
+                            <Typography variant="body2">Campaña de cobros dirigida a clientes particulares con buen historial crediticio</Typography>
+
                         </Grid>
                     </Grid>
                     <Grid container className={classes.row} spacing={1}>
                         <Grid item xs={3}>
-                            <Typography>Vigencia campaña</Typography>
+                            <Typography variant="subtitle2">Vigencia campaña:</Typography>
                         </Grid>
-                        <Grid item xs={4} >
-                            <TextField
-                                variant="outlined"
-                                size="small"
-                                type="date"
-                                helperText="Fecha de inicio"
-                            />
+                        <Grid item xs={3} >
+                            <Typography variant="body2">Fecha de inicio: 01/01/2021</Typography>
                         </Grid>
-                        <Grid item xs={4}>
-                            <TextField
-                                variant="outlined"
-                                size="small"
-                                type="date"
-                                helperText="Fecha de finalización"
-                            />
+                        <Grid item xs={3}>
+                            <Typography variant="body2">Fecha de finalización: 30/01/2021</Typography>
                         </Grid>
                     </Grid>
                 </Grid>
                 <Grid item xs={12} >
-                    <Divider className={classes.divider} />
-                    <Grid container className={classes.dropzone}>
-                        <Grid item xs={3}>
-                            <Typography>Archivo Campaña</Typography>
-                        </Grid>
-                        <Grid item xs={3}>
-                            <Button className={classes.button} variant="contained" color="secondary">
-                                Subir Archivo
-                            </Button >
-                        </Grid>
-                    </Grid>
-                    <Grid container className="">
-                        <Grid item xs={3}>
-                            <Typography>Depurar y limpiar datos</Typography>
-                        </Grid>
-                        <Grid item xs={3}>
-                            <Switch />
-                        </Grid>
-                    </Grid>
                     <Divider className={classes.divider} />
                 </Grid>
                 <Grid item xs={12} >
@@ -182,29 +129,29 @@ const CampaignForm = () => {
                     </Grid>
                     <Grid container className={classes.row} spacing={1}>
                         <Grid item xs={3}>
-                            <Typography>Horario de llamadas</Typography>
+                            <Typography variant="subtitle2" >Horario de llamadas:</Typography>
                         </Grid>
-                        <Grid item xs={4}>
-                            <TextField variant="outlined" size="small" type="time" helperText="Hora de inicio" />
+                        <Grid item xs={3}>
+                            <Typography variant="body2">Hora de inicio: 10:00 am</Typography>
                         </Grid>
-                        <Grid item xs={4}>
-                            <TextField variant="outlined" size="small" type="time" helperText="Hora final" />
+                        <Grid item xs={3}>
+                            <Typography variant="body2">Hora de finalización: 06:00 pm</Typography>
                         </Grid>
                     </Grid>
                     <Grid container className={classes.row} spacing={1}>
                         <Grid item xs={3}>
-                            <Typography># intentos diarios por registro</Typography>
+                            <Typography variant="subtitle2"># intentos diarios por registro:</Typography>
                         </Grid>
                         <Grid item xs={4}>
-                            <TextField variant="outlined" size="small" type="number" />
+                            <Typography variant="body2">4</Typography>
                         </Grid>
                     </Grid>
                     <Grid container className={classes.row} spacing={1}>
                         <Grid item xs={3}>
-                            <Typography># intentos durante la campaña</Typography>
+                            <Typography variant="subtitle2"># intentos durante la campaña:</Typography>
                         </Grid>
                         <Grid item xs={4}>
-                            <TextField variant="outlined" size="small" type="number" />
+                            <Typography variant="body2">60</Typography>
                         </Grid>
                     </Grid>
                     <Divider className={classes.divider} />
@@ -215,18 +162,18 @@ const CampaignForm = () => {
                     </Grid>
                     <Grid container className={classes.row} spacing={1}>
                         <Grid item xs={3}>
-                            <Typography>SMS</Typography>
+                            <Typography variant="subtitle2">SMS:</Typography>
                         </Grid>
                         <Grid item xs={3}>
-                            <Switch />
+                            <Switch disabled />
                         </Grid>
                     </Grid>
                     <Grid container className={classes.row} spacing={1}>
                         <Grid item xs={3}>
-                            <Typography>Correo electrónico</Typography>
+                            <Typography variant="subtitle2">Correo electrónico:</Typography>
                         </Grid>
                         <Grid item xs={3}>
-                            <Switch />
+                            <Switch disabled checked />
                         </Grid>
                     </Grid>
                     <Divider className={classes.divider} />
@@ -234,7 +181,7 @@ const CampaignForm = () => {
 
                 <Grid item xs={12}  >
                     <Button className={`${classes.buttonSubmit} ${classes.button}`} variant="contained" color="secondary">
-                        Crear
+                        Editar
                 </Button>
                 </Grid>
 
@@ -243,4 +190,4 @@ const CampaignForm = () => {
     )
 }
 
-export default CampaignForm
+export default CampaignDummy

@@ -1,12 +1,15 @@
 import React from 'react'
 
 import ListItemText from '@material-ui/core/ListItemText'
+import ListItemIcon from '@material-ui/core/ListItemIcon'
 import Typography from '@material-ui/core/Typography'
 import ListItem from '@material-ui/core/ListItem'
 import Divider from '@material-ui/core/Divider'
 import Toolbar from '@material-ui/core/Toolbar'
 import Drawer from '@material-ui/core/Drawer'
 import List from '@material-ui/core/List'
+
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos'
 
 import { makeStyles } from '@material-ui/core/styles'
 
@@ -42,18 +45,21 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 
-const Listbar = (routes, url, classes, location) => (
+const Listbar = (routes, url, classes, location, back) => (
 
     routes.map(route =>
 
         <NavLink
             key={route.id}
-            to={`${url}/${route.route}`}
+            to={`${back? '/config': url}/${route.route}`}
             style={{ textDecoration: "none", color: "#000000DE" }}
         >
             <ListItem
                 button
                 className={`${classes.listItem} ${location.pathname === url + '/' + route.route ? classes.active : ''}`} >
+                {back && <ListItemIcon size="small"> 
+                    <ArrowBackIosIcon  fontSize="small" /> 
+                </ListItemIcon>}
                 <ListItemText primary={route.label} />
             </ListItem>
         </NavLink>
@@ -86,7 +92,7 @@ const Sidebar = (props) => {
                                     <Typography className={classes.label}>{element.header}</Typography>}
                                 <List>
                                     {
-                                        Listbar(element.routes, url, classes, location)
+                                        Listbar(element.routes, url, classes, location, element.back)
                                     }
                                 </List>
                             </div>

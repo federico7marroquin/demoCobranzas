@@ -1,6 +1,3 @@
-
-
-
 const charts = {
     id: 0,
     header: '',
@@ -78,11 +75,6 @@ const general = {
     divider: false,
     routes:[
         {
-            id: 0,
-            route: 'notifications',
-            label: 'Notificaciones', 
-        },
-        {
             id: 1,
             route: 'users',
             label: 'Usuarios',
@@ -90,6 +82,51 @@ const general = {
     ]
 }
 
+
+const detail = {
+    id: 0,
+    header: 'Campaña',
+    divider: true,
+    routes: [
+        {
+            id: 0,
+            route: 'detail',
+            label: 'Detalle'
+        },
+    ]
+}
+
+const notifications = {
+    id: 1,
+    header: 'Alertas y notificaciones',
+    divider: false,
+    routes: [
+        {
+            id:0,
+            route: 'email',
+            label: 'Correo electrónico'
+        },
+        {
+            id:1,
+            route: 'sms',
+            label: 'SMS'
+        },
+    ]
+}
+
+const gobackCampaign = {
+    id: 2,
+    header: '',
+    divider: true,
+    back: true,
+    routes: [
+        {
+            id: 0,
+            route: 'campaign/list',
+            label: 'Volver'
+        }
+    ]
+}
 // const users = {
 //     header: '',
 //     divider: true,
@@ -111,5 +148,12 @@ export const config = [
     campaigns,
     general,
 ] 
+
+export const campaign = [
+    gobackCampaign,
+    detail,
+    notifications
+]
+
 
 
