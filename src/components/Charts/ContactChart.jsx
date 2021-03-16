@@ -62,20 +62,27 @@ const ContactChart = (props) => {
 
     useEffect(() => {
         // if (hasVal1Changed) {
-        //     if (campaign !== 'Todas las campañas') {
-        //         setFilteredData(memoizedByCampaign)
-        //     }
-        //     else {
-        //         setFilteredData(data)
-        //     }
+            if (campaign !== 'Todas las campañas') {
+                setFilteredData(memoizedByCampaign)
+            }
+            else {
+                setFilteredData(data)
+            }
         // }
         // else if (hasVal2Changed) {
             
         // }
-        setFilteredData(memoizedByDate)
+        // setFilteredData(memoizedByDate)
 
 
-    }, [hasVal1Changed, hasVal2Changed, campaign, date, memoizedByCampaign, memoizedByDate])
+    }, [
+        // hasVal1Changed, 
+        // hasVal2Changed, 
+        campaign, 
+        // date, 
+        memoizedByCampaign, 
+        // memoizedByDate
+    ])
 
 
 
