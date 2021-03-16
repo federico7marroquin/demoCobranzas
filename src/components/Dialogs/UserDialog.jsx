@@ -260,10 +260,10 @@ export default function UserDialog(props) {
                 </Box>
             </DialogContent>
             <DialogActions>
-                <Button onClick={closeDialog}>
+                <Button onClick={closeDialog} color="secondary" variant="outlined">
                     Cancelar
                 </Button>
-                <Button onClick={executeAction}>
+                <Button onClick={executeAction} color="secondary" variant="outlined">
                     {buttonLabel}
                 </Button>
             </DialogActions>

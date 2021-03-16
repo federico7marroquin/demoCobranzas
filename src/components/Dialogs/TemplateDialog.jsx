@@ -129,10 +129,10 @@ export default function TemplateDialog(props) {
                 </Box>
             </DialogContent>
             <DialogActions>
-                <Button onClick={closeDialog} color="primary">
+                <Button onClick={closeDialog} variant="outlined" color="secondary">
                     Cancelar
                 </Button>
-                <Button onClick={handleCreate} color="primary">
+                <Button onClick={handleCreate} variant="outlined" color="secondary">
                     Crear
                 </Button>
             </DialogActions>

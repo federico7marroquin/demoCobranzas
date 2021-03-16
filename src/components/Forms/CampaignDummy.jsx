@@ -1,9 +1,7 @@
 import React from 'react'
 
 import Typography from '@material-ui/core/Typography'
-import TextField from '@material-ui/core/TextField'
 import Container from '@material-ui/core/Container'
-import MenuItem from '@material-ui/core/MenuItem'
 import Divider from '@material-ui/core/Divider'
 import Button from '@material-ui/core/Button'
 import Switch from '@material-ui/core/Switch'
@@ -11,24 +9,6 @@ import Grid from '@material-ui/core/Grid'
 
 import { makeStyles } from '@material-ui/core/styles'
 
-const clientOptions = [
-    {
-        value: '1',
-        label: 'Cliente 1',
-    },
-    {
-        value: '2',
-        label: 'Cliente 2',
-    },
-    {
-        value: '3',
-        label: 'Cliente 3',
-    },
-    {
-        value: '4',
-        label: 'Cliente 4',
-    },
-]
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -65,14 +45,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 const CampaignDummy = () => {
-
     const classes = useStyles()
-
-    const [client, setClient] = React.useState(1)
-
-    const handleChange = (event) => {
-        setClient(event.target.value)
-    }
 
     return (
         <Container fluid="true" className={classes.root}>
@@ -87,7 +60,7 @@ const CampaignDummy = () => {
                             <Typography variant="subtitle2">Cliente:</Typography>
                         </Grid>
                         <Grid item xs={4} >
-                            <Typography variant="body">Cliente particular, Cliente preferencial</Typography>
+                            <Typography variant="body2">Cliente particular, Cliente preferencial</Typography>
                         </Grid>
 
                     </Grid>
@@ -96,7 +69,7 @@ const CampaignDummy = () => {
                             <Typography variant="subtitle2">Campaña:</Typography>
                         </Grid>
                         <Grid item xs={4}>
-                            <Typography variant="body">Campaña de pagos enero</Typography>
+                            <Typography variant="body2">Campaña de pagos enero</Typography>
                         </Grid>
                     </Grid>
                     <Grid container className={classes.row} spacing={1}>

@@ -90,7 +90,7 @@ export default function SignIn(props) {
                         autoComplete="current-password"
                     />
                     <FormControlLabel
-                        control={<Checkbox value="remember" color="primary" />}
+                        control={<Checkbox value="remember" color="secondary" />}
                         label="Recuerdame"
                     />
                     <NavLink to="/statistics/contactability"  style={{ textDecoration: "none", color: "#000000DE" }}>
