@@ -55,19 +55,20 @@ const ContactChart = (props) => {
          
     }, [date, campaign])
 
-    const memoizedByCampaign = useMemo(() => memoizedByDate.filter(element => element.id === campaign), [memoizedByDate, campaign])
+    // const memoizedByCampaign = useMemo(() => memoizedByDate.filter(element => element.id === campaign), [memoizedByDate, campaign])
 
 
 
 
     useEffect(() => {
+        setFilteredData(memoizedByDate)
+
         // if (hasVal1Changed) {
-            if (campaign !== 'Todas las campañas') {
-                setFilteredData(memoizedByCampaign)
-            }
-            else {
-                setFilteredData(data)
-            }
+            // if (campaign !== 'Todas las campañas') {
+            // }
+            // else {
+            //     setFilteredData(data)
+            // }
         // }
         // else if (hasVal2Changed) {
             
@@ -78,9 +79,10 @@ const ContactChart = (props) => {
     }, [
         // hasVal1Changed, 
         // hasVal2Changed, 
-        campaign, 
+        // campaign, 
         // date, 
-        memoizedByCampaign, 
+        // memoizedByCampaign, 
+        memoizedByDate
         // memoizedByDate
     ])
 
