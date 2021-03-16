@@ -83,8 +83,6 @@ export default function MailBox(props) {
 
     }
 
-
-
     return (
         <React.Fragment>
             <Box ml={1} mb={2}>
@@ -140,11 +138,12 @@ export default function MailBox(props) {
                                     className='btn'
                                     color='secondary'
                                     onClick={handleSaveTamplate}
+                                    style={{color: '#fff'}}
                                 >
                                     Crear
                                 </Button>
                                 <CssButton color='secondary'>
-                                    <ArrowDropDownIcon />
+                                    <ArrowDropDownIcon  style={{color: '#fff'}} />
                                 </CssButton>
                             </ButtonGroup>
                             <Box ml={2} >

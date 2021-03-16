@@ -5,15 +5,13 @@ import Typography from '@material-ui/core/Typography'
 import TextField from '@material-ui/core/TextField'
 import Container from '@material-ui/core/Container'
 import Checkbox from '@material-ui/core/Checkbox'
-import Avatar from '@material-ui/core/Avatar'
 import Button from '@material-ui/core/Button'
 import Link from '@material-ui/core/Link'
 import Grid from '@material-ui/core/Grid'
 import Box from '@material-ui/core/Box'
 
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
 
-import logo from '../../assets/images/Logo.png';
+import logo from '../../assets/images/Be pro.png';
 
 import { makeStyles } from '@material-ui/core/styles'
 
@@ -43,13 +41,15 @@ const useStyles = makeStyles((theme) => ({
     },
     avatar: {
         margin: theme.spacing(1),
-        backgroundColor: theme.palette.secondary.main,
+        // width: '40%'
+        // backgroundColor: theme.palette.secondary.main,
     },
     form: {
         width: '100%', // Fix IE 11 issue.
         marginTop: theme.spacing(1),
     },
     submit: {
+        color: '#fff',
         margin: theme.spacing(3, 0, 2),
     },
 }))
@@ -61,13 +61,11 @@ export default function SignIn(props) {
     return (
         <Container component="main" maxWidth="xs">
             <div className={classes.paper}>
-                    <img src={logo} alt="Logo de be pro solutions" />
-                {/* <Avatar className={classes.avatar}>
-                    <LockOutlinedIcon />
-                </Avatar> */}
-                <Typography component="h1" variant="h5">
-                    Iniciar Sesión
-                </Typography>
+                    <img 
+                        src={logo} 
+                        alt="Logo de be pro solutions" 
+                        className={classes.avatar}
+                    />
                 <form className={classes.form} noValidate>
                     <TextField
                         variant="outlined"
@@ -101,7 +99,7 @@ export default function SignIn(props) {
                             type="submit"
                             fullWidth
                             variant="contained"
-                            color="primary"
+                            color="secondary"
                             className={classes.submit}
                             onClick={() => setLogin(true)}
                         >
