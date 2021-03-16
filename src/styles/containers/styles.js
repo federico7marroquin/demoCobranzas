@@ -30,7 +30,7 @@ export  const useStyles = makeStyles((theme) => ({
       height: 'auto',
     },
     vhHeight: {
-      height: '40vh'
+      height: '50vh'
     },
     vhMediumHeight: {
       height: '60vh'

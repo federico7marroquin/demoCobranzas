@@ -43,7 +43,7 @@ const Navtab = () => {
         <img alt="logo" src={Logo} width="45.5" height="42" />
         <Typography variant="h6" className={classes.menuTitle} >Be Pro Solutions</Typography>
  
-        <Link to="/config" style={{ textDecoration: "none", color: "#000000DE" }}>
+        <Link to="/config/campaign/list" style={{ textDecoration: "none", color: "#000000DE" }}>
           <Button className={classes.menuButton}>
             <Typography >Configuración</Typography>
           </Button>

@@ -16,7 +16,7 @@ const ComplianceContainer = () => {
         <Grid item xs={12}>
             <Paper className={classes.paper} >
                 <Box marginTop={2} marginLeft={3}>
-                     <Typography variant="h6">Cumplimientos de pago</Typography>
+                     <Typography variant="h6">% Cumplimientos de pago</Typography>
                 </Box>
                 <Box margin={3} className={classes.vhHeight}>
                     <ContactChart />

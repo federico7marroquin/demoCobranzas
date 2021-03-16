@@ -22,7 +22,7 @@ export default function MaterialUIPickers() {
                         <KeyboardDatePicker
                             disableToolbar
                             inputVariant="outlined"
-                            // size="small"
+                            size="small"
                             variant="inline"
                             format="MM/dd/yyyy"
                             id="date-picker-inline"
@@ -38,7 +38,7 @@ export default function MaterialUIPickers() {
                         <KeyboardDatePicker
                             disableToolbar
                             variant="inline"
-                            // size="small"
+                            size="small"
                             inputVariant="outlined"
                             format="MM/dd/yyyy"
                             id="date-picker-inline2"

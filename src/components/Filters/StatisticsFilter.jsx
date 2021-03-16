@@ -104,7 +104,7 @@ const StatisticsFilter = () => {
                             label="Campañas"
                             select
                             variant="outlined"
-                            // size="small"
+                            size="small"
                             
                             value={client}
                             onChange={handleChange}
@@ -118,7 +118,7 @@ const StatisticsFilter = () => {
                     </Grid>
                     <Grid item className={classes.select} >
 
-                        <FormControl variant="outlined" className={classes.select}>
+                        <FormControl size="small" variant="outlined" className={classes.select}>
                             <InputLabel htmlFor="outlined-client-simple">Cliente</InputLabel>
                             <Select
                                 value={clientType}
@@ -126,7 +126,6 @@ const StatisticsFilter = () => {
                                 label="Cliente"
                                 multiple
                                 multiline
-                                // size="small"
                                 inputProps={{
                                     name: 'cliente',
                                     id: 'outlined-client-simple',
@@ -146,11 +145,11 @@ const StatisticsFilter = () => {
                 <Grid
                     container
                     direction="column"
-                    spacing={4}
+                    spacing={2}
                     alignItems="flex-end"
                 >
                     <Grid item >
-                        <ButtonGroup size="large" aria-label="large outlined primary button group">
+                        <ButtonGroup  aria-label="large outlined primary button group">
                             <Button>Hoy</Button>
                             <Button>Semana</Button>
                             <Button>Mes</Button>
