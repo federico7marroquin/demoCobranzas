@@ -167,6 +167,7 @@ const StatisticsFilter = (props) => {
                 >
                     <Grid item >
                         <ToggleButtonGroup
+                            size="small"                            
                             value={date}
                             exclusive
                             onChange={handleDate}

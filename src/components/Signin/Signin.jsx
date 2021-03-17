@@ -116,7 +116,7 @@ export default function SignIn(props) {
                         </Grid>
                         <Grid item>
                             <Link href="#" variant="body2">
-                                {"¿No tiene ninguna cuenta? Crea una."}
+                                {"¿No tienes una cuenta? Crea una."}
                             </Link>
                         </Grid>
                     </Grid>
